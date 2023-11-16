@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f5f5f5;
+        }
+
+        #love-question {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #noButton {
+            position: absolute;
+            animation: moveButton 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveButton {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(10px, 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="love-question">Do you love me?</h1>
+
+    <div id="button-container">
+        <button onclick="showResult('Yes')">Yes</button>
+        <button id="noButton" onclick="changeNoButtonPosition()">No</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function showResult(answer) {
+            var resultDiv = document.getElementById("result");
+            if (answer === 'Yes') {
+                resultDiv.innerHTML = "I LOVE YOU TOO ❤️";
+            } else {
+                resultDiv.innerHTML = "Your answer: " + answer;
+            }
+        }
+
+        function changeNoButtonPosition() {
+            var noButton = document.getElementById("noButton");
+            var newX = Math.floor(Math.random() * window.innerWidth - 100);
+            var newY = Math.floor(Math.random() * window.innerHeight - 50);
+            noButton.style.left = newX + "px";
+            noButton.style.top = newY + "px";
+        }
+    </script>
+
+</body>
+</html>
